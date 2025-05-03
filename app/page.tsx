@@ -1,7 +1,13 @@
-import Image from "next/image";
+import EmblaCarousel from "@/components/EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel'
 import { Fade } from "react-awesome-reveal";
 
 export default function Home() {
+
+  const OPTIONS: EmblaOptionsType = { loop: true }
+  const SLIDE_COUNT = 5
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   return (
 
     <>
@@ -30,24 +36,7 @@ export default function Home() {
   <section id="gatos" className="container mx-auto p-6">
     <Fade>
       <h3 className="text-3xl font-semibold text-center mb-6">Gatos para adoção</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <div className="bg-white rounded-lg shadow p-4">
-          <Image src="https://placecats.com/300/200" height={50} width={50} alt="Gato 1" className="rounded w-full h-48 object-cover mb-4"/>
-          <h4 className="text-xl font-bold">Mimi</h4>
-          <p className="text-gray-600">2 anos, carinhosa e tranquila. Adora colo!</p>
-        </div>
-        <div className="bg-white rounded-lg shadow p-4">
-          <Image src="https://placecats.com/301/200" height={50} width={50} alt="Gato 2" className="rounded w-full h-48 object-cover mb-4"/>
-          <h4 className="text-xl font-bold">Frajola</h4>
-          <p className="text-gray-600">1 ano, brincalhão e sociável. Perfeito para famílias!</p>
-        </div>
-        <div className="bg-white rounded-lg shadow p-4">
-          <Image src="https://placecats.com/302/200" height={50} width={50} alt="Gato 3" className="rounded w-full h-48 object-cover mb-4"/>
-          <h4 className="text-xl font-bold">Luna</h4>
-          <p className="text-gray-600">3 anos, calma e companheira. Gosta de ambientes tranquilos.</p>
-        </div>
-      </div>
+      <EmblaCarousel slides={SLIDES} options={OPTIONS}></EmblaCarousel>
     </Fade>
   </section>
 
