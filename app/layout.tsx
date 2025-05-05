@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import "./embla.css";
 
@@ -33,7 +34,7 @@ export default function RootLayout({
       >
         <header className="bg-orange-200 p-6 shadow-md top-0">
                     <div className="container mx-auto flex justify-center items-center">
-                      <a href="/" className="text-3xl font-extrabold text-orange-800">Largatinhos</a>
+                      <Link href="/" className="text-3xl font-extrabold text-orange-800">Largatinhos</Link>
                       
                     </div>
                 </header>
