@@ -11,8 +11,7 @@ const storage = new Storage();
 
 async function getFotosbyID(id: string) {
 
-
-  var resultFotos = Array()
+  const resultFotos = new Array(500);
 
   const options = {
     prefix: id+ '/',
