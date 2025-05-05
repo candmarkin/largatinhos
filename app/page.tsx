@@ -12,12 +12,7 @@ export default function Home() {
 
     <>
 
-<header className="bg-orange-200 p-6 shadow-md">
-              <div className="container mx-auto flex justify-center items-center">
-                <h1 className="text-3xl font-bold text-orange-800">Largatinhos 🐾</h1>
-                
-              </div>
-          </header>
+
 
   <section className="container mx-auto p-6 text-center">
     <Fade>
@@ -66,27 +61,29 @@ export default function Home() {
 
         <div className="flex flex-col">
           <label htmlFor="telefone" className="text-base font-bolder">Telefone</label>
-          <input name="telefone" id="telefone" type="tel" className="border border-black rounded-full px-2 py-0.5 w-" />
+          <input name="telefone" id="telefone" type="tel" className="border border-black rounded-full px-2 py-0.5 w-full" />
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="email" className="text-base font-bolder">Email</label>
-          <input name="email" id="email" type="email" className="border border-black rounded-full px-2 py-0.5 w-" />
+          <input name="email" id="email" type="email" className="border border-black rounded-full px-2 py-0.5 w-full" />
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="cpf" className="text-base font-bolder">CPF</label>
-          <input name="cpf" id="cpf" type="text" className="border border-black rounded-full px-2 py-0.5 w-" />
+          <input name="cpf" id="cpf" type="text" className="border border-black rounded-full px-2 py-0.5 w-full" />
         </div>
 
       </div>
 
-      <button type="submit" className="px-6 py-1 bg-amber-500 border border-amber-800 shadow-md rounded-full text-white font-bold">Enviar</button>
+      <button type="submit" className="px-6 py-1 bg-amber-500 border border-amber-800 shadow-md rounded-full text-white font-bold cursor-pointer">Enviar</button>
       
 
     </form>
     </Fade>
   </section>
+
+  <div className="max-w-full mx-6 my-2 h-1 border-b-1 border-black"></div>
 
   <section id="contato" className="container mx-auto p-6">
     <Fade>

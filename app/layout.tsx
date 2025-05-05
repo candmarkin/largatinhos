@@ -25,18 +25,23 @@ export default function RootLayout({
 }>) {
   return (
     <>
-    <html lang="en">
+    <html lang="pt-br ">
       
       
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-gray-800`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-gray-800 max-w-screen min-h-screen static`}
       >
-
+        <header className="bg-orange-200 p-6 shadow-md top-0">
+                    <div className="container mx-auto flex justify-center items-center">
+                      <a href="/" className="text-3xl font-extrabold text-orange-800">Largatinhos</a>
+                      
+                    </div>
+                </header>
           
 
         {children}
 
-        <footer className="bg-orange-200 p-4 text-center text-sm text-gray-700 mt-10">
+        <footer className="bg-orange-200 p-4 text-center text-sm text-gray-700 mt-10 bottom-0">
         © 2025 Largatinhos. Todos os direitos reservados.
         </footer>
       </body>
