@@ -2,8 +2,6 @@ import EmblaCarousel from "@/components/EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { Fade } from "react-awesome-reveal";
 
-import catpaw from '../public/catpaw.png'
-
 export default function Home() {
 
   const OPTIONS: EmblaOptionsType = { loop: true }
