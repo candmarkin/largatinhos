@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const SwiperModel = ({fotos}) => {
+const SwiperModel = (fotos: string[]) => {
   return (
     <Swiper className='w-full sm:w-1/2 h-full'
       // install Swiper modules
