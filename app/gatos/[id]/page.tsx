@@ -12,7 +12,7 @@ const storage = new Storage();
 async function getFotosbyID(id: string) {
 
 
-    let resultFotos = new Array()
+  const resultFotos = new Array()
 
   const options = {
     prefix: id+ '/',
@@ -42,7 +42,7 @@ async function selectDados(id: string) {
     return result
   }
 
-  function calculateAge(data: any) {
+  function calculateAge(data: string) {
     const birthDate = new Date(data);
     const ageDifMs = Date.now() - birthDate.getTime();
     const ageDate = new Date(ageDifMs);
@@ -51,7 +51,7 @@ async function selectDados(id: string) {
     const days = (ageDate.getUTCDate() - 1)
 
 
-    var idade = new String()
+    let idade = new String()
 
     if(years > 0){
         idade = years > 1 ? (years.toString() + " anos") : (years.toString() + " meses");

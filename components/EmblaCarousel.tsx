@@ -41,7 +41,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   return (
     <section className="embla">
-      <span className="w-full flex flex-row justify-end"><a href="/gatos" className="unset text-base text-amber-500 font-extrabold">Ver todos</a></span>
+      <span className="w-full flex flex-row justify-end"><Link href="/gatos" className="unset text-base text-amber-500 font-extrabold">Ver todos</Link></span>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (
