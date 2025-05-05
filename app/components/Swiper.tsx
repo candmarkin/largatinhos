@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const SwiperModel = ({fotos}:any) => {
+const SwiperModel = ({fotos}) => {
   return (
     <Swiper className='w-full sm:w-1/2 h-full'
       // install Swiper modules
@@ -22,7 +22,7 @@ const SwiperModel = ({fotos}:any) => {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      {fotos.map((foto: any) => {return <SwiperSlide><img key={fotos.indexOf(foto)} src={foto} className='w-full h-full object-cover'></img></SwiperSlide>})}
+      {fotos.map((foto: string) => {return <SwiperSlide key={foto}><img key={fotos.indexOf(foto)} src={foto} className='w-full h-full object-cover'></img></SwiperSlide>})}
     </Swiper>
   );
 };
