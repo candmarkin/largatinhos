@@ -1,7 +1,5 @@
-import { NextRequest } from "next/server";
 import { Storage } from "@google-cloud/storage";
 import { neon } from "@neondatabase/serverless";
-import SwiperModel from "../../components/Swiper"
 import dynamic from "next/dynamic";
 
 const DynamicSwiper = dynamic(() => import('../../components/Swiper'), {

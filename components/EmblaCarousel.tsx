@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import React, { useCallback } from 'react'
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
 import {
@@ -51,7 +52,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   <img src={"https://placecats.com/30"+ (index+1).toString() +"/200"} alt={"Gato " + (index +1).toString()} className='h-full object-contain'/>
                   <p className='text-xl font-bold'>Gatinho {index + 1}</p>
                   <p className='text-sm text-gray-700 line-clamp-3'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam earum impedit recusandae rerum accusantium similique mollitia dicta animi aut sequi illum ab optio, dignissimos ullam praesentium quos, ratione eligendi? Facilis.</p>
-                  <a className='bg-amber-500 p-1 text-white rounded-full text-sm whitespace-nowrap'>Saiba mais</a>
+                  <Link href='/gato/1' className='bg-amber-500 p-1 text-white rounded-full text-sm whitespace-nowrap'>Saiba mais</Link>
                 </div>
 
                 
