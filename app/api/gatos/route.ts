@@ -1,14 +1,11 @@
-
-import { NextApiRequest, NextApiResponse } from "next";
 import { neon } from "@neondatabase/serverless";
 import { Storage } from "@google-cloud/storage";
 import { NextRequest } from 'next/server';
-import { getFotosbyID } from "@/app/gatos/[id]/page";
 
 const storage = new Storage();
 
 export const checkEnvironment = () => {
-    let base_url =
+    const base_url =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
         : "https://largatinhos.vercel.app";

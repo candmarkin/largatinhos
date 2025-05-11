@@ -11,9 +11,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { getFotoDivbyID } from '../api/gatos/route';
 
-const SwiperModel = ({fotos}) => {
+function SwiperModel({ fotos }) {
   return (
     <Swiper className='w-full sm:w-1/2 h-full'
       // install Swiper modules
@@ -24,10 +23,10 @@ const SwiperModel = ({fotos}) => {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      {fotos.map((foto: string) => {return <SwiperSlide key={foto}><img key={fotos.indexOf(foto)} src={foto} className='w-full h-full object-cover'></img></SwiperSlide>})}
+      {fotos.map((foto: string) => { return <SwiperSlide key={foto}><img key={fotos.indexOf(foto)} src={foto} className='w-full h-full object-cover'></img></SwiperSlide>; })}
     </Swiper>
   );
-};
+}
 
 
 export default SwiperModel
