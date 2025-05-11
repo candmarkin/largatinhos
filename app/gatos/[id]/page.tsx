@@ -1,17 +1,13 @@
 import { Storage } from "@google-cloud/storage";
 import { neon } from "@neondatabase/serverless";
-import dynamic from "next/dynamic";
-
-const DynamicSwiper = dynamic(() => import('../../components/Swiper'), {
-  loading: () => <p>Loading...</p>,
-})
+import SwiperModel from "../../components/Swiper";
 
 
 const storage = new Storage();
 
-async function getFotosbyID(id: string) {
+export async function getFotosbyID(id: string){
 
-  const resultFotos = new Array(500);
+  const resultFotos = new Array(1);
 
   const options = {
     prefix: id+ '/',
@@ -33,7 +29,7 @@ async function getFotosbyID(id: string) {
 
 }
 
-async function selectDados(id: string) {
+export async function selectDados(id: string) {
     'use server';
     // Connect to the Neon database
     const sql = neon(`${process.env.DATABASE_URL}`);
@@ -41,7 +37,7 @@ async function selectDados(id: string) {
     return result
   }
 
-  function calculateAge(data: string) {
+export function calculateAge(data: string) {
     const birthDate = new Date(data);
     const ageDifMs = Date.now() - birthDate.getTime();
     const ageDate = new Date(ageDifMs);
@@ -81,7 +77,7 @@ export default async function Gato(
     return(
         <div key={objGato.id} className="p-6 gap-6 flex flex-col sm:flex-row h-[40rem] sm:h-96 w-full sm:w-1/2 m-0">
 
-            <DynamicSwiper fotos={objGato.fotos}></DynamicSwiper>
+            <SwiperModel fotos={objGato.fotos}></SwiperModel>
 
             {objGato.dados.map((dado) =>{return (
 

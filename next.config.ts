@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [{
       protocol: 'https',
       hostname: 'placecats.com',
+    },{
+      protocol: 'https',
+      hostname: 'storage.googleapis.com',
     }]
   },
 
