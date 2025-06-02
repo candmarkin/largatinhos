@@ -19,7 +19,7 @@
     "net": "^1.0.2",
     "next": "^15.4.0-canary.27",
     "pg": "^8.15.6",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
     "react-responsive-carousel": "^3.2.23",

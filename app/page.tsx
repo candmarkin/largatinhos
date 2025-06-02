@@ -1,6 +1,7 @@
 import EmblaCarousel from "@/components/EmblaCarousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { Fade } from "react-awesome-reveal";
+import React from "react";
 
 export default function Home() {
 

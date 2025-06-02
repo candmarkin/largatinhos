@@ -1,7 +1,7 @@
 import { Storage } from "@google-cloud/storage";
 import { neon } from "@neondatabase/serverless";
 import SwiperModel from "../../components/Swiper";
-
+import React from "react";
 
 const storage = new Storage();
 

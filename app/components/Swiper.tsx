@@ -1,21 +1,23 @@
 'use client'
 
-// import Swiper core and required modules
+import React from 'react'
+
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function SwiperModel({ fotos }) {
+type SwiperModelProps = {
+  fotos: string[];
+};
+
+function SwiperModel({ fotos }: SwiperModelProps) {
   return (
     <Swiper className='w-full sm:w-1/2 h-full'
-      // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
       slidesPerView={1}
@@ -23,10 +25,13 @@ function SwiperModel({ fotos }) {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      {fotos.map((foto: string) => { return <SwiperSlide key={foto}><img key={fotos.indexOf(foto)} src={foto} className='w-full h-full object-cover'></img></SwiperSlide>; })}
+      {fotos.map((foto: string) => (
+        <SwiperSlide key={foto}>
+          <img src={foto} className='w-full h-full object-cover' />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
-
 
 export default SwiperModel

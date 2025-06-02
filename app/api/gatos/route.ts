@@ -1,6 +1,5 @@
 import { neon } from "@neondatabase/serverless";
 import { Storage } from "@google-cloud/storage";
-import { NextRequest } from 'next/server';
 
 const storage = new Storage();
 

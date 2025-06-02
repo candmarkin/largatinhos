@@ -1,4 +1,4 @@
-import { checkEnvironment, getFotoDivbyID } from "../api/gatos/route";
+import { checkEnvironment} from "../api/gatos/route";
 import dynamic from "next/dynamic"
 
 const DynamicComponent = dynamic(() =>
@@ -14,10 +14,10 @@ export default async function GatosPage(){
   const result = await fetch(checkEnvironment().concat('/api/gatos'))
   const gatos = await result.json()
 
-return (<div className="m-4 sm:m-6 flex flex-row flex-wrap max-w-screen gap-4 justify-between">{gatos.map(async (gatoID: any) => {
-          
+return (<div className="m-4 sm:m-6 flex flex-row flex-wrap max-w-screen gap-4 justify-between">{gatos.map(async (gatoid: {id: string}) => {
+
           return(
-            <DynamicComponent key={"DIV" + gatoID.id} gatoID={gatoID}/>
+            <DynamicComponent key={"DIV" + gatoid.id} gatoID={gatoid}/>
           )
         })}</div>
 )

@@ -3,6 +3,7 @@ import { neon } from "@neondatabase/serverless";
 
 import noImage from "../../public/noImage.png"
 import Link from "next/link";
+import React from "react";
 
 const storage = new Storage();
 
@@ -62,7 +63,7 @@ export async function selectDadosDiv(id: string) {
   }
 
 
-export const DivGato = async(gatoID: any) => {
+export const DivGato = async(gatoID: Record<string, {id: string}>) => {
 
     const fotos = await getFotoDivbyID(gatoID.gatoID.id)
     const dados = await selectDadosDiv(gatoID.gatoID.id)
