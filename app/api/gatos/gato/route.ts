@@ -10,23 +10,22 @@ export const checkEnvironment = () => {
   return base_url;
 };
 
-export async function getFotoDivbyID(id: string) {
+function getFotoDivbyID(id: string) {
   const resultFotos = [];
   const options = {
     prefix: id + '/',
-    delimiter: '/', // typo fixed: 'delimite' -> 'delimiter'
+    delimiter: '/',
   };
 
   // Lists files in the bucket, filtered by a prefix
-  const [files] = await storage.bucket('largatinhos').getFiles(options);
-
-  files.forEach((file) => {
-    if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
-      resultFotos.push(file.publicUrl().toString());
-    }
+  return storage.bucket('largatinhos').getFiles(options).then(([files]) => {
+    files.forEach((file) => {
+      if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
+        resultFotos.push(file.publicUrl().toString());
+      }
+    });
+    return resultFotos;
   });
-
-  return resultFotos;
 }
 
 // Next.js Route Handler
