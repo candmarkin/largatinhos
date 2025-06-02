@@ -10,8 +10,13 @@ const DynamicComponent = dynamic<DivGatoProps>(
 );
 
 export default async function GatosPage() {
-  const result = await fetch(checkEnvironment().concat('/api/gatos'));
-  const gatos = await result.json();
+  const res = await fetch(checkEnvironment() + '/api/gatos', { cache: "no-store" });
+  if (!res.ok) {
+    // Optionally log the error response
+    const text = await res.text();
+    throw new Error(`API error: ${res.status}\n${text}`);
+  }
+  const gatos = await res.json();
 
   return (
     <div className="m-4 sm:m-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
