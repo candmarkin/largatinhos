@@ -1,7 +1,4 @@
 import { neon } from "@neondatabase/serverless";
-import { Storage } from "@google-cloud/storage";
-
-const storage = new Storage();
 
 export const checkEnvironment = () => {
     const base_url =
