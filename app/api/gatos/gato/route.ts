@@ -13,19 +13,19 @@ export async function GET(req: NextRequest) {
   }
   try {
     const resultFotos: string[] = [];
-  const options = {
-    prefix: id + '/',
-    delimiter: '/',
-  };
+    const options = {
+      prefix: id + '/',
+      delimiter: '/',
+    };
 
-  // Lists files in the bucket, filtered by a prefix
-  const [files] = await storage.bucket('largatinhos').getFiles(options);
-  files.forEach((file) => {
-    if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
-      resultFotos.push(file.publicUrl().toString());
-    }
-  });
-    return new Response(JSON.stringify({ resultFotos }), { status: 200 });
+    // Lists files in the bucket, filtered by a prefix
+    const [files] = await storage.bucket('largatinhos').getFiles(options);
+    files.forEach((file) => {
+      if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
+        resultFotos.push(file.publicUrl().toString());
+      }
+    });
+      return new Response(JSON.stringify({ resultFotos }), { status: 200 });
   } catch {
     return new Response(JSON.stringify({ error: "Failed to fetch images" }), { status: 500 });
   }
