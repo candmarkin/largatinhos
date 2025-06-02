@@ -5,7 +5,7 @@ import React from "react";
 
 const storage = new Storage();
 
-export async function getFotosbyID(id: string){
+async function getFotosbyID(id: string){
 
   const resultFotos = new Array(1);
 
