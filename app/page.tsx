@@ -94,7 +94,7 @@ export default function Home() {
     <h4 className="text-xl text-center mb-6">Entre em contato conosco</h4>
     <div className="max-w-xl mx-auto text-center space-y-2">
       <p>📧 Email: <a href="mailto:contato@largatinhos.org" className="text-orange-700 underline">contato@largatinhos.org</a></p>
-      <p>📞 WhatsApp: <a href="https://wa.me/5591999999999" className="text-orange-700 underline" target="_blank">(91) 99999-9999</a></p>
+      <p>📞 WhatsApp: <a href="https://wa.me/5591999999999" className="text-orange-700 underline" target="_blank" rel="noreferrer">(91) 99999-9999</a></p>
       <p>📍 Localização: Sorocaba - SP</p>
     </div>
     </Fade>

@@ -1,5 +1,6 @@
 import { checkEnvironment} from "../api/gatos/route";
 import dynamic from "next/dynamic"
+import React from "react";
 
 const DynamicComponent = dynamic(() =>
   import('../components/divGato').then((mod) => mod.DivGato)
