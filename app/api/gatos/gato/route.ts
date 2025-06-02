@@ -1,35 +1,47 @@
 import { Storage } from "@google-cloud/storage";
 
-
 const storage = new Storage();
 
 export const checkEnvironment = () => {
-    const base_url =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "https://largatinhos.vercel.app";
-  
-    return base_url;
-}
+  const base_url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://largatinhos.vercel.app";
+  return base_url;
+};
 
-export async function getFotoDivbyID(id: string){
+export async function getFotoDivbyID(id: string) {
+  const resultFotos = [];
+  const options = {
+    prefix: id + '/',
+    delimiter: '/', // typo fixed: 'delimite' -> 'delimiter'
+  };
 
-    const resultFotos = new Array(1);
-  
-    const options = {
-      prefix: id+ '/',
-      delimite: '/'
-    };
-
-    // Lists files in the bucket, filtered by a prefix
+  // Lists files in the bucket, filtered by a prefix
   const [files] = await storage.bucket('largatinhos').getFiles(options);
 
   files.forEach((file) => {
-    if(file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')){
-        resultFotos.push(file.publicUrl().toString())
+    if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
+      resultFotos.push(file.publicUrl().toString());
     }
-    
   });
 
-  return resultFotos
+  return resultFotos;
+}
+
+// Next.js Route Handler
+import { NextRequest } from "next/server";
+
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+  if (!id) {
+    return new Response(JSON.stringify({ error: "Missing id parameter" }), { status: 400 });
+  }
+  try {
+    const fotos = await getFotoDivbyID(id);
+    return new Response(JSON.stringify({ fotos }), { status: 200 });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Failed to fetch images" }), { status: 500 });
+  }
 }
