@@ -1,28 +1,10 @@
-import { Storage } from "@google-cloud/storage";
+import { NextRequest } from "next/server";
+import { getFotoDivbyID } from "./fotoDiv";
 
-const storage = new Storage();
 
-function getFotoDivbyID(id: string) {
-  const resultFotos = [];
-  const options = {
-    prefix: id + '/',
-    delimiter: '/',
-  };
 
-  // Lists files in the bucket, filtered by a prefix
-  return storage.bucket('largatinhos').getFiles(options).then(([files]) => {
-    files.forEach((file) => {
-      if (file.publicUrl().endsWith('.jpg') || file.publicUrl().endsWith('.png')) {
-        resultFotos.push(file.publicUrl().toString());
-      }
-    });
-    return resultFotos;
-  });
-}
 
 // Next.js Route Handler
-import { NextRequest } from "next/server";
-
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
