@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
   try {
     const fotos = await getFotoDivbyID(id);
     return new Response(JSON.stringify({ fotos }), { status: 200 });
-  } catch (_error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Failed to fetch images" }), { status: 500 });
   }
 }
