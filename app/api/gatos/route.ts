@@ -1,5 +1,4 @@
 import { neon } from "@neondatabase/serverless";
-import { NextRequest } from "next/server";
 
 export async function GET() {
   const sql = neon(`${process.env.DATABASE_URL}`);
