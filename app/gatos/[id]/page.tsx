@@ -29,7 +29,7 @@ async function getFotosbyID(id: string){
 
 }
 
-export async function selectDados(id: string) {
+async function selectDados(id: string) {
     'use server';
     // Connect to the Neon database
     const sql = neon(`${process.env.DATABASE_URL}`);
@@ -37,7 +37,7 @@ export async function selectDados(id: string) {
     return result
   }
 
-export function calculateAge(data: string) {
+function calculateAge(data: string) { 
     const birthDate = new Date(data);
     const ageDifMs = Date.now() - birthDate.getTime();
     const ageDate = new Date(ageDifMs);
