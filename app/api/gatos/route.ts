@@ -35,16 +35,15 @@ export async function getFotoDivbyID(id: string){
   return resultFotos
 }
  
-export async function GET(request: NextRequest) {
-    
+export async function GET() {
     const sql = neon(`${process.env.DATABASE_URL}`);
     const result = await sql.query('SELECT id FROM gatos');
-    console.log(result)
- 
-  return new Response(
-    JSON.stringify(result),
-    {
-      headers: { 'Content-Type': 'application/json' },
-    },
-  );
+    console.log(result);
+
+    return new Response(
+        JSON.stringify(result),
+        {
+            headers: { 'Content-Type': 'application/json' },
+        },
+    );
 }
