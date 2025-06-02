@@ -83,7 +83,7 @@ export const DivGato = async(gatoID: Record<string, {id: string}>) => {
             
             {dados.map((dado) =>{
                 return (
-                <div key={"dados" + dado.id}>
+                <div key={"dados" + dado.id} className="flex flex-col items-center gap-1">
                   <p className="text-xl font-bold text-center" key={dado.nome}>{dado.nome}</p>
                   <p className="text-sm max-w-30 sm:max-w-40 text-center whitespace-normal" key={dado.id + "Descricao"}>{calculateAge(dado.nascimento)}, {dado.sexo}, {dado.vacinas}, {dado.saude}</p>
                   <Link href={"/gatos/" + dado.id} className="bg-amber-500 text-white text-sm font-extrabold px-4 py-2 text-center rounded-full">Mais</Link>
