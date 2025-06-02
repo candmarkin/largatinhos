@@ -1,4 +1,4 @@
-import { checkEnvironment} from "../api/gatos/route";
+import { checkEnvironment } from "@/app/checkenv";
 import dynamic from "next/dynamic"
 import React from "react";
 
